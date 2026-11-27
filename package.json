@@ -1,0 +1,37 @@
+{
+  "name": "naver-powerlink-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "keywords:register": "tsx scripts/engine/register-ads.ts",
+    "keywords:reconcile": "tsx scripts/engine/reconcile-ads.ts",
+    "keywords:poll-reviews": "tsx scripts/engine/poll-reviews.ts",
+    "keywords:prepare-campaign": "tsx scripts/engine/prepare-exact-search-campaign.ts",
+    "keywords:sync-published": "tsx scripts/engine/sync-published-naver-keywords.ts",
+    "keywords:search-stats": "tsx scripts/engine/sync-keyword-search-stats.ts",
+    "keywords:block": "tsx scripts/engine/block-keyword-batch.ts",
+    "ads:hours": "tsx scripts/engine/enforce-sampleone-ad-hours.ts",
+    "credentials:store": "tsx scripts/engine/store-naver-credentials-from-stdin.ts",
+    "naver:auto-bid": "tsx programs/naver-auto-bid/src/cli.ts",
+    "naver:auto-bid:worker": "tsx programs/naver-auto-bid/src/command-worker.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.2",
+    "pg": "^8.23.0",
+    "undici": "^7.29.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.4",
+    "@types/node": "^26.1.0",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "description": "Naver PowerLink (search ads) keyword management and automatic bidding engine"
+}
